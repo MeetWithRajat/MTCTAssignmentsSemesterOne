@@ -1,2 +1,2 @@
 # MTCTAssignmentsSemesterOne
-This project is for assignemnt in C given in assignemnt lab semeseter 1 on MTCT
+This project is for assignment in C given in assignment lab semester 1 on MTCT
