@@ -24,12 +24,12 @@ void insert(struct Node **node, int data){
     }
 }
 
-void traverse(struct Node *root){
+void traverse(struct Node *node){
     // this function will do in-order traversal recursively
-    if (root != NULL){
-        traverse(root -> left);
-        printf("%d ", root -> data);
-        traverse(root -> right);
+    if (node != NULL){
+        traverse(node -> left);
+        printf("%d ", node -> data);
+        traverse(node -> right);
     }
 }
 
@@ -51,10 +51,11 @@ int main(){
     struct Node *set1_root = NULL, *set2_root = NULL;
 
     set1_root = createSet("first", set1_root);  // creating first set
+
+    set2_root = createSet("second", set2_root);  // creating second set
+    
     printf("\nThe first set is:\n");
     traverse(set1_root);
-
-    set1_root = createSet("second", set2_root);  // creating second set
     printf("\nThe second set is:\n");
     traverse(set2_root);
     
