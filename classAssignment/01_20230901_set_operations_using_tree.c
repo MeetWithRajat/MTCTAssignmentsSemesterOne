@@ -24,16 +24,8 @@ void insert(struct Node **node, int data){
     }
 }
 
-void traverse(struct Node *node){
-    // this function will do in-order traversal recursively
-    if (node != NULL){
-        traverse(node -> left);
-        printf("%d ", node -> data);
-        traverse(node -> right);
-    }
-}
-
 struct Node* createSet(char *setName, struct Node *root){
+    // this function will create a set for n elements
     int n, data;
     printf("\nCreate %s set\nEnter the size of the %s set: ", setName, setName);
     scanf("%d", &n);
@@ -46,18 +38,33 @@ struct Node* createSet(char *setName, struct Node *root){
     return root;
 }
 
+void traverse(struct Node *node){
+    // this function will do in-order traversal recursively
+    if (node != NULL){
+        traverse(node -> left);
+        printf("%d ", node -> data);
+        traverse(node -> right);
+    }
+}
+
+struct Node unionOfTwoSets(struct Node *root1, struct Node *root2){
+    struct Node *unionRoot = NULL;
+    
+
+}
+
 int main(){
     
-    struct Node *set1_root = NULL, *set2_root = NULL;
+    struct Node *set1Root = NULL, *set2Root = NULL, *unionRoot = NULL, *intersectionRoot = NULL;
 
-    set1_root = createSet("first", set1_root);  // creating first set
+    set1Root = createSet("first", set1Root);  // creating first set
 
-    set2_root = createSet("second", set2_root);  // creating second set
+    set2Root = createSet("second", set2Root);  // creating second set
     
     printf("\nThe first set is:\n");
-    traverse(set1_root);
+    traverse(set1Root);
     printf("\nThe second set is:\n");
-    traverse(set2_root);
+    traverse(set2Root);
     
     return 0;
 }
