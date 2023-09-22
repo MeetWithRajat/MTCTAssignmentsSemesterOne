@@ -32,17 +32,19 @@ void traverse(struct node* root){
 		printf("%d\n",root->data);
 	}
 }
-struct node* traverse2(struct node* root4, struct node* unionroot){
-if(root4!=NULL){                
-		return traverse2(root4->left, unionroot);
-	return 	traverse2(root4->right,unionroot);
-		CreateBST(&unionroot,root4->data);
+
+void traverse2(struct node* root4, struct node** unionroot){
+	if(root4!=NULL){                
+		traverse2(root4->left, unionroot);
+		traverse2(root4->right, unionroot);
+		CreateBST(&*unionroot,root4->data);
 	}
 }
 struct node* Union(struct node* root3,struct node* root4){
- struct node* unionroot=root3;
- 
-    return traverse2(root4,unionroot);
+ 	struct node* unionroot=NULL;
+	traverse2(root3, &unionroot);
+	traverse2(root4, &unionroot);
+    return unionroot;
 
 }
 /*void Intersection(struct node root,struct node* root1){
@@ -51,25 +53,29 @@ struct node* Union(struct node* root3,struct node* root4){
 int main(){
  struct node* root=NULL;
  int n,i,data;
- printf("Enter the number of elments:");
+ printf("Enter the number of elements for set 1:");
  scanf("%d",&n);
  for(i=0;i<n;i++){
  	scanf("%d",&data);
  	
  	CreateBST(&root,data);
  }
+ printf("\nset1\n");
  traverse(root);//pass the root pointer to traverse the tree
  struct node* root2=NULL;
 
- printf("Enter the number of elments:");
+ printf("Enter the number of elements for set 2:");
  scanf("%d",&n);
  for(i=0;i<n;i++){
  	scanf("%d",&data);
  	
  	CreateBST(&root2,data);
  }
+ printf("\nset2\n");
  traverse(root2);//pass the root pointer to traverse the tree
-struct node* unionroot=Union( root,root2);
+struct node* unionroot=NULL;
+unionroot = Union(root,root2);
+printf("\nUnion\n");
 traverse(unionroot);
 
  return 0;
