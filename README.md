@@ -4,7 +4,7 @@
 </div>
 This project is for programming in C given in assignment lab semester 1 on MTCT
 
-Author & Owner: **Rajat Roy** Last Updated: **2023-09-22**
+Author & Owner: **Rajat Roy** Last Updated: **2023-09-23**
 
 
 <div style="text-align:center">
@@ -26,3 +26,5 @@ Author & Owner: **Rajat Roy** Last Updated: **2023-09-22**
 </div>
 
 **Assignment 1 - 2023-09-01 -** Design a system using the tree data-structure to implement a set. Also design two functions for union and intersection of two sets.
+
+**Assignment 2 - 2023-09-22 -** Design an algorithm and then write a program to find the nearest and farthest points for a given N number of 2D points.
